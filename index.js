@@ -7,17 +7,15 @@ const notificationDot = document.querySelectorAll('.notification-dot');
 const notificationDotContainer = document.querySelectorAll('.accent');
 const notificationName = document.querySelectorAll('.notification-name');
 
+
+for(let i = 0; i< 3; i++){
+    notificationDotContainer[i].classList.add('dot');
+}
+
 unreadButton.addEventListener('click', function(){
-    
     [...notificationDotContainer].forEach(notification => {
-        if(!notification.hasChildNodes()){
-            const newDot = document.createElement('span');
-            newDot.classList.add('notification-dot');
-            notification.append(newDot)
-        }
-        
+        notification.classList.add('dot');
     });
-    [...notificationDot].forEach(dot => dot.style.display = 'block');
     [...allNotifications].forEach(element => element.classList.add('active'));
     notificationsCounter.textContent = [...allNotifications].length;
     }
@@ -26,14 +24,11 @@ unreadButton.addEventListener('click', function(){
 readButton.addEventListener('click', function(){
     [...allNotifications].forEach(element => element.classList.remove('active'));
     notificationsCounter.textContent = 0;
-    [...notificationDot].forEach(dot => dot.style.display = 'none');
+    
     [...notificationDotContainer].forEach(notification => {
-        if(notification.hasChildNodes()){
-            const dotNot = notification.lastChild;
-            notification.removeChild(dotNot);
-        }
-        
+            notification.classList.remove('dot');
     });
     }
+    
 )
 

@@ -24,7 +24,7 @@ main{
 a{
     text-decoration: none;
     color:$Dark-grayish-blue;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     @include for-mobile-up{
         font-size: $regular-size;
     }
@@ -35,8 +35,6 @@ a:hover{
 
 
 .container{
-    
-    
     max-width: 680px;
     background-color:$white;  
     border-radius: 20px;
@@ -71,7 +69,7 @@ a:hover{
         margin-left: 0.5rem;
     }
     .read-all-button{
-        font-size: 0.8rem;
+        
         align-self: center;
         @include for-mobile-up{
             font-size: $regular-size;
@@ -107,8 +105,11 @@ a:hover{
         }
         .comment{
             position: relative;
-            
         }
+        .notification:nth-child(-n+3){
+            background-color: black;
+        }
+
         .timestamp{
             color:$grayish-blue;
         }
@@ -146,13 +147,21 @@ a:hover{
     font-weight: $weight-hard;
     color:$blue;
 }
-.notification-dot{
+.dot::after{
     position: absolute;
+    content: '';
     width: 7px;
     height: 7px;
     border-radius: 50%;
     background-color: $red;
-    right:-15px;
-    top:25%;
     box-shadow: 0 0 3px $red;
+    right:-15px;
+    top:40%;
+}
+.no-after::after{
+    display: none;
+}
+
+.attribution{
+    font-size: 0.7rem;
 }
